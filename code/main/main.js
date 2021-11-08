@@ -168,6 +168,8 @@ function timerTick(){
     // Count down 1 second
     secondsLeft--;
     
+    debugLog("Timer tick " + secondsLeft + " seconds left.");
+
     // Update timer
     updateTimer();
 
