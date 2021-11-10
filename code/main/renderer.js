@@ -282,6 +282,11 @@ Mousetrap.bind('ctrl+shift+q', function() {
     shutdownSystem();
 });
 
+// --- Reload config
+Mousetrap.bind('ctrl+c', function() { 
+    remote.app.reloadConfig();
+});
+
 // --- Reboot
 Mousetrap.bind('ctrl+shift+r', function() { 
     rebootSystem();

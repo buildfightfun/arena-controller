@@ -325,6 +325,10 @@ app.setBlueReady = function(){
   blueReadyPressed();
 }
 
+app.reloadConfig = function(){
+    config = require("./config.json");
+}
+
 // --- Sets the text displayed in the UI
 app.setUiText = function(text){
   mainWindow.webContents.executeJavaScript(`updateAppState('` + text + `')`);
