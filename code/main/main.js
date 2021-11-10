@@ -93,7 +93,7 @@ var exec = require('child_process').exec;
 var timer = new eventEmitter.EventEmitter();
 
 //--- Set initial constants and variables
-var startSeconds = 120; // 3 minutes - Set Timer Length
+var startSeconds = config.timer_seconds; // Set Timer Length - This can be changed in the config.json file
 if (config.debugMode) startSeconds = 21; // override time for debugging
 var secondsLeft = startSeconds;
 
@@ -199,13 +199,15 @@ function updateTimer(){
   // Update the UI
   if(mainWindow !== null) {
     mainWindow.webContents.executeJavaScript(`updateTimer('` + getTimerText() + `')`);
-    if(secondsLeft === 15){
+    if(secondsLeft === config.timer_end_seconds){
       // Start pulsing the timer in the UI
       mainWindow.webContents.executeJavaScript(`setTimerColorEnding()`);
       
       // Start blinking the safety lights white
-      arenaApp.blinkingLeds = leds_White;
-      startBlink(arenaApp.blinkingLeds);
+      if (config.rgb_on) {
+          arenaApp.blinkingLeds = leds_White;
+          startBlink(arenaApp.blinkingLeds);
+      }
     }
 
     if(secondsLeft === 1)
@@ -517,10 +519,15 @@ const rgb_Red_LED = new Gpio(19, 'high');
 const rgb_Blue_LED = new Gpio(13, 'high');
 
 //Put all the LED variables in an array
-const leds = [Remote_Blue_Ready_LED,MCP_Blue_Ready_LED,MCP_Red_Ready_LED,
+var leds = [Remote_Blue_Ready_LED,MCP_Blue_Ready_LED,MCP_Red_Ready_LED,
   Remote_Red_Ready_LED,Start_Button_LED,Pause_Button_LED,Reset_Button_LED,
-  InMatch_LED,eStop_LED,Standby_LED,WaitForReady_LED,
-  rgb_Green_LED,rgb_Red_LED,rgb_Blue_LED];
+  InMatch_LED,eStop_LED,Standby_LED,WaitForReady_LED];
+
+if (config.rgb_on) {
+    leds.push(rgb_Green_LED);
+    leds.push(rgb_Red_LED);
+    leds.push(rgb_Blue_LED);
+}
 
 const leds_White = [rgb_Green_LED,rgb_Red_LED,rgb_Blue_LED];
 const leds_Purple = [rgb_Red_LED,rgb_Blue_LED];
@@ -675,7 +682,7 @@ function Match(){
 
   LED_ALL_OFF(); // set LEDs to known state which is OFF
 
-  if(secondsLeft <= 15){
+  if(secondsLeft <= 15 && config.rgb_on){
     // Start blinking the safety lights white
     arenaApp.blinkingLeds = leds_White;
     startBlink(arenaApp.blinkingLeds);
