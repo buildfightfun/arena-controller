@@ -1,4 +1,4 @@
-const config = require("./config.json");
+var config = require("./config.json");
 
 //#region Electron initilization    ///////////////////////////////////////////////////////////////////////////////////
 
