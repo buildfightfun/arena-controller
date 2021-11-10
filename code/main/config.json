@@ -1,0 +1,6 @@
+{
+    "debugMode": true,
+    "timer_seconds": 120,
+    "timer_end_seconds":  15,
+    "rgb_on":  true
+}
