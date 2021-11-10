@@ -1,4 +1,5 @@
-var config = require("./config.js");
+//var config = require("./config.js");
+const debugMode = true;
 
 
 //#region Electron initilization    ///////////////////////////////////////////////////////////////////////////////////
