@@ -1,2 +1,5 @@
 // Debug Mode
-const debugMode = true;
+//const debugMode = true;
+{
+    debugMode: true
+}

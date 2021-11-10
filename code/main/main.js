@@ -1,5 +1,5 @@
-//var config = require("./config.js");
-const debugMode = true;
+var config = require("./config.js");
+//const debugMode = true;
 
 
 //#region Electron initilization    ///////////////////////////////////////////////////////////////////////////////////
@@ -41,7 +41,7 @@ function createWindow () {
   console.log("Waiting on dom");
 
   mainWindow.webContents.once("dom-ready", function() {
-    if (debugMode) console.log("Dom Ready");
+    if (config.debugMode) console.log("Dom Ready");
     initializeArena();   
   });
   
@@ -96,7 +96,7 @@ var timer = new eventEmitter.EventEmitter();
 
 //--- Set initial constants and variables
 var startSeconds = 120; // 3 minutes - Set Timer Length
-if (debugMode) startSeconds = 21; // override time for debugging
+if (config.debugMode) startSeconds = 21; // override time for debugging
 var secondsLeft = startSeconds;
 
 const appStates = {
@@ -548,7 +548,7 @@ function LED_ALL_ON(){
 }
 
 function LED_Test_Sequence(){
-  if (debugMode) {console.log('MCP Start Up Test Started')};
+  if (config.debugMode) {console.log('MCP Start Up Test Started')};
   
   for (i=0;i<2;i++){  
     // turn OFF all LEDs
@@ -883,7 +883,7 @@ function stopBlueRedAltBlink(){
 //#region Misc methods
 
 function debugLog(msg){
-  if(debugMode) console.log(msg);
+  if(config.debugMode) console.log(msg);
 }
 
 function msleep(n) {
