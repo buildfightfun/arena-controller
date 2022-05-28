@@ -33,4 +33,5 @@ No need for desktop/laptop - should be pi/microcontroller based to keep costs do
 * Maybe allow team names to be entered (future)
 * Load custom logo
 
-
+## Required Apps
+* https://www.bristolwatch.com/debian/mpg123.htm
