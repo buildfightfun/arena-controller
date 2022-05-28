@@ -1,4 +1,4 @@
-const config = require("./config.json");
+var config = require("./config.json");
 
 //#region Electron initilization    ///////////////////////////////////////////////////////////////////////////////////
 
@@ -323,6 +323,10 @@ app.setRedReady = function(){
 
 app.setBlueReady = function(){
   blueReadyPressed();
+}
+
+app.reloadConfig = function(){
+    config = require("./config.json");
 }
 
 // --- Sets the text displayed in the UI
