@@ -1,6 +1,6 @@
 {
     "debugMode": true,
-    "timer_seconds": 120,
-    "timer_end_seconds":  15,
-    "rgb_on":  true
+    "timer_seconds": 15,
+    "timer_end_seconds":  10,
+    "rgb_on":  false
 }
