@@ -35,3 +35,25 @@ No need for desktop/laptop - should be pi/microcontroller based to keep costs do
 
 ## Required Apps
 * https://www.bristolwatch.com/debian/mpg123.htm
+
+## Usage . Sequences
+The following is the squence for using the controller in a typical match:
+* Initial state *(ctrl+x)* = Load In
+* Select "Emergency Stop" *(ctrl+s)* = Pre-match
+* Red Robot / Blue both selected *(r and b keys)* = Match Ready
+* Select "Start" *(space bar)* = Count down and match begins
+
+To pause the match select "stop" *(space bar)*, to restart select "start" *(space bar)*.
+
+## Keyboard short cuts
+* Reset = (ctrl+x) 
+> Sets to Load In
+* eStop = (ctrl+s) 
+> If in match, stops everything, must reset to continue. If in "Load In" sets to "Pre-match"
+* Red Robot = (r) 
+* Blue Robot = (b)
+> When in pre-match, sets state to ready. During match, if select is a tapout
+* Reboot the Pi = (ctrl+shift+r)
+* Shut down the Pi = (ctrl+shift+q)
+
+
