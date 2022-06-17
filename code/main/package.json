@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^6.1.2",
+    "electron": "^15.5.5",
     "electron-rebuild": "^1.8.6",
     "node-native-loader": "^1.1.1",
     "string-replace-webpack-plugin": "^0.1.3"
